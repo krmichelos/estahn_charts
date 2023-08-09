@@ -85,6 +85,8 @@ spec:
               subPath: config.yaml
               mountPath: /.k8s-image-swapper.yaml
               readOnly: true
+            - mountPath: /tmp
+              name: tmp
             {{- if or .Values.patch.enabled .Values.certmanager.enabled }}
             - name: webhook-cert
               mountPath: "/usr/local/certificates/"
@@ -94,6 +96,8 @@ spec:
         - name: {{ include "k8s-image-swapper.fullname" . }}
           configMap:
             name: {{ include "k8s-image-swapper.fullname" . }}
+        - name: tmp
+          emptyDir: {}
         {{- if .Values.patch.enabled }}
         - name: webhook-cert
           secret:

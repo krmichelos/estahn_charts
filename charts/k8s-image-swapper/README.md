@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.7.0](https://img.shields.io/badge/Version-1.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
+![Version: 1.8.0](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -67,6 +67,11 @@ Mirror images into your own registry and swap image references automatically.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| test.affinity | object | `{}` | Set affinity for the test pod |
+| test.enabled | bool | `true` | Should the test be included with the release |
+| test.image | string | `"busybox"` | The image to use for running the test |
+| test.nodeSelector | object | `{}` | Set a node selector for the test pod |
+| test.tolerations | list | `[]` | Set tolerations for the test pod |
 | tolerations | list | `[]` |  |
 | webhook.failurePolicy | string | `"Ignore"` |  |
 | webhook.namespaceSelector | object | `{}` |  |
